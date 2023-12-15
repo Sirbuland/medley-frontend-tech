@@ -1,3 +1,4 @@
+import { device } from "@/styles/breakpoints.style";
 import styled from "styled-components";
 
 export const TableContainer = styled.div<{ $loading?: boolean }>`
@@ -36,6 +37,10 @@ export const TableCell = styled.td`
   font-weight: 600;
   line-height: 24px;
   letter-spacing: -0.14px;
+
+  @media ${device.mobileM} { 
+    padding-left: 5px;
+  }
 `;
 
 export const NoRecordFound = styled.td`
@@ -51,4 +56,8 @@ export const Chip = styled.span<{ $status: string }>`
   background-color: ${({ $status }) =>
     $status === "Pending" ? "#6F767E66" : "#60CA57"};
   color: #fff;
+
+  @media ${device.mobileM} { 
+    padding: 5px;
+  }
 `;

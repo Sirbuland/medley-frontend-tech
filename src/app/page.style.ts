@@ -15,6 +15,9 @@ export const Heading = styled.h2`
   font-size: 40px;
   margin-top: 20px;
   font-weight: 600;
+  @media ${device.mobileM} { 
+    padding: 10px;
+  }
 `
 
 export const FlexBox = styled.div`
@@ -25,6 +28,7 @@ export const FlexBox = styled.div`
 
   @media ${device.mobileM} { 
     padding: 10px;
+    margin-top: 20px;
     flex-direction: column;
     gap: 12px;
   }

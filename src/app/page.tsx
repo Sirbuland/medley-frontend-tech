@@ -51,6 +51,7 @@ export default function Home() {
       setPayouts(searchData);
 
       const calculatedTotalPages = Math.ceil(searchData.length / metaData.limit);
+      console.log(calculatedTotalPages)
       setMetaData({ ...metaData, totalPage: calculatedTotalPages - 1, page: 1 });
 
     } catch (error) {
@@ -77,9 +78,8 @@ export default function Home() {
 
   const filterdData = useMemo(() => {
     if (searchTerm) {
-      const startingIndex = (metaData.page === 1 ? 0 : metaData.page!) * 10;
+      const startingIndex = (metaData.page === 1 ? 0 : metaData.page!) * metaData.limit;
 
-      console.log('coming here')
       return payouts.slice(startingIndex, startingIndex + metaData.limit)
     }
 

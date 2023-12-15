@@ -10,6 +10,7 @@ import {
 } from './payouts.style'
 import Loader from '../Loader'
 import { Payout } from '@/interface/payout'
+import { formatDateAndTime } from '@/utils'
 
 const Payouts: React.FC<{ data: any, loading: boolean }> = ({ data, loading }) => {
   return (
@@ -31,7 +32,7 @@ const Payouts: React.FC<{ data: any, loading: boolean }> = ({ data, loading }) =
                 data.map((row: Payout, index: number) => (
                   <TableRow key={row.username} even={index % 2 === 0}>
                     <TableCell>{row.username}</TableCell>
-                    <TableCell>{row.dateAndTime}</TableCell>
+                    <TableCell>{formatDateAndTime(row.dateAndTime)}</TableCell>
                     <TableCell>
                       <Chip $status={row.status}>{row.status}</Chip>
                     </TableCell>
